@@ -3,12 +3,10 @@ package alim.dev.library;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
-import androidx.activity.EdgeToEdge;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -16,17 +14,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.libraryButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, LibraryActivity.class));
-            }
-        });
+        ListView listView = findViewById(R.id.productListView);
 
-        findViewById(R.id.randomButton).setOnClickListener(new View.OnClickListener() {
+        String[] products = ProductsRepository.getProductNames();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_list_item_1, products);
+
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, RandomActivity.class));
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this, ProductDetailActivity.class);
+                intent.putExtra("productIndex", position);
+                startActivity(intent);
             }
         });
     }

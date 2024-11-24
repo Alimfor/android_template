@@ -10,8 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookLibraryApp">
 
-        <activity android:name=".RandomActivity" />
-        <activity android:name=".LibraryActivity" />
+        <activity android:name=".ProductDetailActivity" />
         <activity android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
