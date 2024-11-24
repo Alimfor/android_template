@@ -10,12 +10,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
 
-        <ListView
-            android:id="@+id/watchListView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/song1Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Песня 1" />
+
+        <Button
+            android:id="@+id/song2Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Песня 2" />
 
     </LinearLayout>
 

@@ -1,11 +1,9 @@
 package alim.dev.library;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ListView;
+import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -13,16 +11,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView listView = findViewById(R.id.watchListView);
+        findViewById(R.id.song1Button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SongActivity.class);
+                intent.putExtra("songId", R.raw.song1);
+                startActivity(intent);
+            }
+        });
 
-        List<Watch> watches = new ArrayList<>();
-        watches.add(new Watch("Rolex", "$5000", "Luxury watch with gold finish", R.drawable.rolex));
-        watches.add(new Watch("Casio", "$150", "Durable and reliable digital watch", R.drawable.casio));
-        watches.add(new Watch("Omega", "$3000", "Classic mechanical watch", R.drawable.omega));
-        watches.add(new Watch("Fossil", "$200", "Stylish watch with leather strap", R.drawable.fossil));
-        watches.add(new Watch("Seiko", "$250", "High-quality Japanese watch", R.drawable.seiko));
-
-        WatchAdapter adapter = new WatchAdapter(this, watches);
-        listView.setAdapter(adapter);
+        findViewById(R.id.song2Button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SongActivity.class);
+                intent.putExtra("songId", R.raw.song2);
+                startActivity(intent);
+            }
+        });
     }
 }
