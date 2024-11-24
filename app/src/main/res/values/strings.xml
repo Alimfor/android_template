@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">library</string>
+    <string name="random_text_view">Книга появится здесь</string>
+    <string name="random_button">Получить книгу</string>
+</resources>
